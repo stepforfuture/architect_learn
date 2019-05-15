@@ -16,6 +16,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+        <activity
+            android:name=".keep_alive.KeepActivity"
+            android:excludeFromRecents="true"
+            android:theme="@style/KeepTheme" />
+
+        <service android:name=".keep_alive.ForegroundService" />
+
     </application>
 
 </manifest>
