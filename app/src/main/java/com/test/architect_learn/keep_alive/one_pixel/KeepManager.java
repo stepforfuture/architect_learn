@@ -1,4 +1,4 @@
-package com.test.architect_learn.keep_alive;
+package com.test.architect_learn.keep_alive.one_pixel;
 
 import android.app.Activity;
 import android.content.Context;
@@ -37,7 +37,7 @@ public class KeepManager {
     }
 
     public void startKeep(Context context) {
-        Intent intent = new Intent(context, KeepActivity.class);
+        Intent intent = new Intent(context, OnePixelActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
     }
@@ -52,7 +52,7 @@ public class KeepManager {
         mkeepActivity = null;
     }
 
-    public void setmKeep(KeepActivity ac) {
+    public void setmKeep(OnePixelActivity ac) {
         mkeepActivity = new WeakReference<Activity>(ac);
     }
 

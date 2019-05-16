@@ -1,4 +1,4 @@
-package com.test.architect_learn.keep_alive;
+package com.test.architect_learn.keep_alive.one_pixel;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -20,11 +20,11 @@ public class KeepReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         String action = intent.getAction();
 
-        Log.e(TAG, "on receive:" + action);
+        Log.i(TAG, "on receive:" + action);
 
-        if (TextUtils.equals(action, Intent.ACTION_SCREEN_ON)) {
+        if (TextUtils.equals(action, Intent.ACTION_SCREEN_ON)) {//屏幕点亮的时候打开1像素页面
             KeepManager.getInstance().startKeep(context);
-        } else if (TextUtils.equals(action, Intent.ACTION_SCREEN_ON)) {
+        } else if (TextUtils.equals(action, Intent.ACTION_SCREEN_OFF)) {//屏幕关闭的时候需要关闭1像素页面
             KeepManager.getInstance().finishKeep();
         }
 

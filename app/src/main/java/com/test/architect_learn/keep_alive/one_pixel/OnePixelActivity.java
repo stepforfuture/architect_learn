@@ -1,26 +1,30 @@
-package com.test.architect_learn.keep_alive;
+package com.test.architect_learn.keep_alive.one_pixel;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.Window;
 import android.view.WindowManager;
 
 /**
- * Description: 1个像素的保活方案 中1个像素的activity
- * <br>Author：tian
- * <br>Time: 2019/5/14 20:10
+ * 一个像素保活方案 ,方案流程
+ * <pre>
+ *  1.监听屏幕的点亮和熄灭(ACTION_SCREENT_ON,ACTION_SCREENT_OFF)。
+ *  2.在屏幕点亮的时候启动一个 一像素的activity设置背景为透明，为什么是1个像素是因为1像素占用的内存最小。
+ *
+ *  缺点：必须要在用户点亮屏幕的时候，才会去生成1像素页面。
+ *  </pre>
  */
-public class KeepActivity extends AppCompatActivity {
+public class OnePixelActivity extends Activity {
 
-    private final String TAG = KeepActivity.class.getSimpleName();
+    private final String TAG = OnePixelActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.e(TAG, "启动app");
+        Log.i(TAG, "启动app");
 
         Window window = getWindow();
         window.setGravity(Gravity.START | Gravity.TOP);
@@ -37,6 +41,6 @@ public class KeepActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.e(TAG, "关闭KeepActivity");
+        Log.i(TAG, "关闭KeepActivity");
     }
 }

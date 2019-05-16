@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.test.architect_learn">
 
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,18 +15,30 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
 
         <activity
-            android:name=".keep_alive.KeepActivity"
+            android:name=".keep_alive.one_pixel.OnePixelActivity"
             android:excludeFromRecents="true"
             android:theme="@style/KeepTheme" />
 
-        <service android:name=".keep_alive.ForegroundService" />
+        <service android:name=".keep_alive.foreground_service.ForegroundService" />
+        <service android:name=".keep_alive.sticky_service.StickySevice" />
+        <service
+            android:name=".keep_alive.job_sheduler.TestJobService"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+        <service
+            android:name=".keep_alive.double_process.AliveRemoteService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=".keepAlive" />
+        <service android:name=".keep_alive.double_process.LocalService" />
+        <service
+            android:name=".keep_alive.double_process.JobHandleService"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
 
     </application>
 
