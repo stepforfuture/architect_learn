@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
 //        KeepManager.getInstance().registerKeep(this);
 //        //方案two 利用前台服务 提升进程优先级保活
 //        startService(new Intent(this, ForegroundService.class));
-
 //        //方案3，利用sticky进行进程的拉活
 //        startService(new Intent(this, StickySevice.class));
 //          //方案4，利用JobShechuder进行进程的拉活
@@ -30,8 +29,6 @@ public class MainActivity extends AppCompatActivity {
         //方案5，双进程的方式进行保活,步骤较为麻烦
         startService(new Intent(this, LocalService.class));
         startService(new Intent(this, AliveRemoteService.class));
-
-
     }
 
     @Override
